@@ -1,0 +1,33 @@
+@scope (.menu-item) {
+    :scope {
+        border: 3px solid var(--menu-text);
+        border-radius: 1px;
+        font-size: clamp(1rem, 0.9648rem + 1.1745vw, 1.875rem);
+    }
+
+    span {
+        padding-inline-start: 1rem;
+        padding-block: 0.2rem;
+        text-align: start;
+        text-transform: capitalize;
+        white-space: nowrap;
+        overflow: hidden;
+        background-color: var(--menu-bg);
+        color: var(--menu-text);
+    }
+
+    button {
+        gap: 5px;
+        grid-template-columns: repeat(2, 1fr);
+        align-content: center;
+        border: 1px solid var(--menu-text);
+        background-color: #bfbfbf;
+    }
+
+    .square {
+        width: 10px;
+        aspect-ratio: 1;
+        background-color: inherit;
+        box-shadow: 2px 2px 1px;
+    }
+}

@@ -1,0 +1,36 @@
+@scope (.menu) {
+    :scope {
+        min-height: 100svh;
+        justify-content: space-evenly;
+        align-items: stretch;
+    }
+
+    .heading {
+        &::after {
+            content: '';
+            display: block;
+            height: 2px;
+            width: 90%;
+            background-color: var(--primary-text);
+        }
+    }
+
+    .options {
+        &::before {
+            content: '';
+            display: block;
+            height: 2px;
+            width: 90%;
+            background-color: var(--primary-text);
+        }
+
+        .option {
+            padding: 1rem;
+            font-size: clamp(1.25rem, 1.2248rem + 0.8389vw, 1.875rem);
+            text-align: center;
+            letter-spacing: -0.05ch;
+            border-inline: 1px solid black;
+
+        }
+    }
+}
