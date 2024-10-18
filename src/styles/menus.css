@@ -1,36 +1,94 @@
 @scope (.menu) {
     :scope {
         min-height: 100svh;
-        justify-content: space-evenly;
+        justify-content: space-around;
         align-items: stretch;
     }
 
-    .heading {
-        &::after {
-            content: '';
-            display: block;
-            height: 2px;
-            width: 90%;
-            background-color: var(--primary-text);
+    .heading,
+    .footer {
+        margin-inline: auto;
+        width: 95%;
+        overflow: hidden;
+    }
+
+    .mode {
+        display: block;
+        padding-inline-start: 1rem;
+        font-size: clamp(1.25rem, 1.2248rem + 0.8389vw, 1.875rem);
+        animation: slide-under 0.5s linear forwards;
+
+        &::before {
+            content: '*';
+            display: inline;
         }
     }
 
+    .separator {
+        margin-block: 0.2rem;
+        height: 2px;
+        background-color: var(--primary-text);
+        animation: slide-in 1s linear forwards;
+    }
+
     .options {
-        &::before {
-            content: '';
-            display: block;
-            height: 2px;
-            width: 90%;
-            background-color: var(--primary-text);
-        }
+        justify-content: space-evenly;
+        flex-wrap: wrap;
 
         .option {
-            padding: 1rem;
+            position: relative;
+            padding-inline: 1rem;
             font-size: clamp(1.25rem, 1.2248rem + 0.8389vw, 1.875rem);
             text-align: center;
             letter-spacing: -0.05ch;
-            border-inline: 1px solid black;
 
+            &::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                bottom: 25%;
+                height: 50%;
+                width: 2px;
+                background-color: var(--primary-text);
+            }
+
+            &:last-child {
+                color: red;
+
+                &::before {
+                    background-color: red;
+                }
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    right: 0;
+                    bottom: 25%;
+                    height: 50%;
+                    width: 2px;
+                    background-color: var(--primary-text);
+                }
+            }
         }
+    }
+}
+
+@keyframes slide-in {
+    from {
+        translate: -100%;
+    }
+
+    to {
+        translate: 0;
+    }
+}
+
+@keyframes slide-under {
+    from {
+        translate: 0 -100%;
+    }
+
+    to {
+        translate: 0 0;
     }
 }

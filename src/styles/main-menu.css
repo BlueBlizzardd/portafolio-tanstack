@@ -2,7 +2,7 @@ dialog {
     width: 500px;
     border: none;
     background-color: transparent;
-    transition: all 0.5s ease-out allow-discrete;
+    transition: all 0.5s linear allow-discrete;
 
     &[open] {
         &::backdrop {
@@ -16,13 +16,13 @@ dialog {
 
     &::backdrop {
         background-color: hsla(0, 0%, 0%, 0%);
-        transition: all 0.5s ease-out;
+        transition: all 0.5s linear;
     }
 
     >.menu-item {
         margin-block-end: 4px;
         grid-template-columns: 0fr 40px;
-        transition: all 0.5s ease-out;
+        transition: all 0.5s linear;
     }
 }
 

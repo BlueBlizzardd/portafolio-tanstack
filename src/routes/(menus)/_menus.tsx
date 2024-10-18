@@ -9,17 +9,21 @@ function Menu() {
   const location = useLocation();
 
   return (
-    <div className="menu primary-bg">
-      <div className="heading">
-        <span className='mode'>Mode: {location.pathname}</span>
-      </div>
+    <div className="d-flex flex-column menu primary-bg">
+      <header className="heading">
+        <span className='mode title'>Mode: {location.pathname}</span>
+        <div className="separator"></div>
+      </header>
       <Outlet />
-      <div className="d-flex options">
-        <div className="option title">Directional Buttons: </div>
-        <div className="option title">Enter Button: O.K.</div>
-        <div className="option title">Esc Button: Cancel</div>
-        <div className="option title">Please</div>
-      </div>
+      <footer className="footer">
+        <div className="separator"></div>
+        <div className="d-flex options">
+          <div className="option title">Directional Buttons: </div>
+          <div className="option title">Enter Button: O.K.</div>
+          <div className="option title">Esc Button: Cancel</div>
+          <div className="option title">Please</div>
+        </div>
+      </footer>
     </div>
   )
 }
