@@ -31,11 +31,11 @@
         animation: slide-in 1s linear forwards;
     }
 
-    .options {
+    .controls {
         justify-content: space-evenly;
         flex-wrap: wrap;
 
-        .option {
+        .control {
             position: relative;
             padding-inline: 1rem;
             font-size: clamp(1.25rem, 1.2248rem + 0.8389vw, 1.875rem);
