@@ -17,6 +17,7 @@ import { Route as IndexImport } from './routes/index'
 import { Route as menusMenusImport } from './routes/(menus)/_menus'
 import { Route as menusMenusOptionsImport } from './routes/(menus)/_menus.options'
 import { Route as menusMenusAboutImport } from './routes/(menus)/_menus.about'
+import { Route as menusMenusGaragePageImport } from './routes/(menus)/_menus.garage.$page'
 
 // Create Virtual Routes
 
@@ -46,6 +47,11 @@ const menusMenusOptionsRoute = menusMenusOptionsImport.update({
 
 const menusMenusAboutRoute = menusMenusAboutImport.update({
   path: '/about',
+  getParentRoute: () => menusMenusRoute,
+} as any)
+
+const menusMenusGaragePageRoute = menusMenusGaragePageImport.update({
+  path: '/garage/$page',
   getParentRoute: () => menusMenusRoute,
 } as any)
 
@@ -88,6 +94,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof menusMenusOptionsImport
       parentRoute: typeof menusMenusImport
     }
+    '/(menus)/_menus/garage/$page': {
+      id: '/_menus/garage/$page'
+      path: '/garage/$page'
+      fullPath: '/garage/$page'
+      preLoaderRoute: typeof menusMenusGaragePageImport
+      parentRoute: typeof menusMenusImport
+    }
   }
 }
 
@@ -96,11 +109,13 @@ declare module '@tanstack/react-router' {
 interface menusMenusRouteChildren {
   menusMenusAboutRoute: typeof menusMenusAboutRoute
   menusMenusOptionsRoute: typeof menusMenusOptionsRoute
+  menusMenusGaragePageRoute: typeof menusMenusGaragePageRoute
 }
 
 const menusMenusRouteChildren: menusMenusRouteChildren = {
   menusMenusAboutRoute: menusMenusAboutRoute,
   menusMenusOptionsRoute: menusMenusOptionsRoute,
+  menusMenusGaragePageRoute: menusMenusGaragePageRoute,
 }
 
 const menusMenusRouteWithChildren = menusMenusRoute._addFileChildren(
@@ -121,12 +136,14 @@ export interface FileRoutesByFullPath {
   '/': typeof menusMenusRouteWithChildren
   '/about': typeof menusMenusAboutRoute
   '/options': typeof menusMenusOptionsRoute
+  '/garage/$page': typeof menusMenusGaragePageRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof menusMenusRouteWithChildren
   '/about': typeof menusMenusAboutRoute
   '/options': typeof menusMenusOptionsRoute
+  '/garage/$page': typeof menusMenusGaragePageRoute
 }
 
 export interface FileRoutesById {
@@ -135,14 +152,21 @@ export interface FileRoutesById {
   '/_menus': typeof menusMenusRouteWithChildren
   '/_menus/about': typeof menusMenusAboutRoute
   '/_menus/options': typeof menusMenusOptionsRoute
+  '/_menus/garage/$page': typeof menusMenusGaragePageRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/options'
+  fullPaths: '/' | '/about' | '/options' | '/garage/$page'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/options'
-  id: '__root__' | '/' | '/_menus' | '/_menus/about' | '/_menus/options'
+  to: '/' | '/about' | '/options' | '/garage/$page'
+  id:
+    | '__root__'
+    | '/'
+    | '/_menus'
+    | '/_menus/about'
+    | '/_menus/options'
+    | '/_menus/garage/$page'
   fileRoutesById: FileRoutesById
 }
 
@@ -183,7 +207,8 @@ export const routeTree = rootRoute
       "parent": "/",
       "children": [
         "/_menus/about",
-        "/_menus/options"
+        "/_menus/options",
+        "/_menus/garage/$page"
       ]
     },
     "/_menus/about": {
@@ -192,6 +217,10 @@ export const routeTree = rootRoute
     },
     "/_menus/options": {
       "filePath": "(menus)/_menus.options.tsx",
+      "parent": "/_menus"
+    },
+    "/_menus/garage/$page": {
+      "filePath": "(menus)/_menus.garage.$page.tsx",
       "parent": "/_menus"
     }
   }
