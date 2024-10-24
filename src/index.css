@@ -3,6 +3,7 @@
   --primary-text: black;
   --menu-bg: hsl(0, 0%, 29%);
   --menu-text: hsl(0, 0%, 75%);
+  --animation-speed: 0.5s;
 }
 
 /* I'm not applying border-box to everything because it makes it unperformant */

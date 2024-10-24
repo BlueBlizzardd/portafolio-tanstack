@@ -1,0 +1,20 @@
+@scope (.garage) {
+    img {
+        display: block;
+        max-width: 600px;
+        perspective: 500px;
+        aspect-ratio: 2 / 1;
+        transform: rotateY(45deg);
+        animation: rotate calc(var(--animation-speed) * 3) linear infinite;
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotateY(45deg);
+    }
+
+    to {
+        transform: rotateY(225deg);
+    }
+}

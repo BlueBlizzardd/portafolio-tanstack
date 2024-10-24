@@ -3,6 +3,7 @@
         min-height: 100svh;
         justify-content: space-around;
         align-items: stretch;
+        animation: fade-in var(--animation-speed) linear forwards;
     }
 
     .heading,
@@ -16,7 +17,7 @@
         display: block;
         padding-inline-start: 1rem;
         font-size: clamp(1.25rem, 1.2248rem + 0.8389vw, 1.875rem);
-        animation: slide-under 0.5s linear forwards;
+        animation: slide-under var(--animation-speed) var(--animation-speed) linear forwards;
 
         &::before {
             content: '*';
@@ -28,7 +29,8 @@
         margin-block: 0.2rem;
         height: 2px;
         background-color: var(--primary-text);
-        animation: slide-in 1s linear forwards;
+        translate: -100%;
+        animation: slide-in 1s var(--animation-speed) linear forwards;
     }
 
     .controls {
@@ -74,10 +76,6 @@
 }
 
 @keyframes slide-in {
-    from {
-        translate: -100%;
-    }
-
     to {
         translate: 0;
     }
@@ -90,5 +88,11 @@
 
     to {
         translate: 0 0;
+    }
+}
+
+@keyframes fade-in {
+    from {
+        background-color: black;
     }
 }
