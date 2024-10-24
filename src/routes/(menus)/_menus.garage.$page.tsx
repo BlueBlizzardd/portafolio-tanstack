@@ -5,7 +5,7 @@ export const Route = createFileRoute('/(menus)/_menus/garage/$page')({
     component: Pages
 })
 
-async function Pages() {
+function Pages() {
     const { page }: { page: "cafe" | "cloth" | "game" | "mac" | "ow" | "pets" | "salon" } = Route.useParams();
 
     const pages = {
@@ -18,7 +18,7 @@ async function Pages() {
         salon: "https://peaceful-chaja-823c96.netlify.app"
     }
 
-    const img: string = `./${page}.png`;
+    const img: string = `/${page}.png`;
 
     return (
         <div className='garage'>

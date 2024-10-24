@@ -1,7 +1,8 @@
 @scope (.garage) {
     img {
         display: block;
-        max-width: 600px;
+        max-width: 450px;
+        margin-inline: auto;
         perspective: 500px;
         aspect-ratio: 2 / 1;
         transform: rotateY(45deg);
@@ -11,10 +12,10 @@
 
 @keyframes rotate {
     from {
-        transform: rotateY(45deg);
+        transform: rotateY(0deg);
     }
 
     to {
-        transform: rotateY(225deg);
+        transform: rotateY(360deg);
     }
 }

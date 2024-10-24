@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import "../styles/main-menu.css"
 import MenuItem from "./menu-item";
 
@@ -5,13 +6,15 @@ type MenuProps = {
     dialogRef: React.Ref<HTMLDialogElement>;
 };
 
-const options = ["Portafolio", "Garage", "Save and Load", "Options"];
+const options = ["garage", "about", "options"];
 
 export default function MainMenu({ dialogRef }: MenuProps) {
     return (
         <dialog ref={dialogRef}>
             {options.map((option, index) => (
-                <MenuItem key={index}>{option}</MenuItem>
+                <Link to={`/${option}`}>
+                    <MenuItem key={index}>{option}</MenuItem>
+                </Link>
             ))}
         </dialog>
     );
