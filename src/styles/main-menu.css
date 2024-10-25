@@ -9,7 +9,7 @@ dialog {
             background-color: hsla(0, 0%, 0%, 50%);
         }
 
-        >.menu-item {
+        .menu-item {
             grid-template-columns: 3fr 40px;
         }
     }
@@ -19,7 +19,11 @@ dialog {
         transition: all var(--animation-speed) linear;
     }
 
-    >.menu-item {
+    a {
+        text-decoration: none;
+    }
+
+    .menu-item {
         margin-block-end: 4px;
         grid-template-columns: 0fr 40px;
         transition: all var(--animation-speed) linear;
@@ -31,7 +35,7 @@ dialog {
         background-color: hsla(0, 0%, 0%, 0%);
     }
 
-    dialog[open]>.menu-item {
+    dialog[open] .menu-item {
         grid-template-columns: 0fr 40px;
     }
 }

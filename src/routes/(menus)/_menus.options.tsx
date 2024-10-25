@@ -7,7 +7,7 @@ export const Route = createFileRoute('/(menus)/_menus/options')({
 })
 
 function OptionsMenu() {
-  const options: string[] = ['Animation Speed', 'Quit']
+  const options: string[] = ['Animation Speed']
 
   return (
     <div className='d-grid options'>

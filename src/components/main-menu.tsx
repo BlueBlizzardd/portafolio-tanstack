@@ -12,8 +12,8 @@ export default function MainMenu({ dialogRef }: MenuProps) {
     return (
         <dialog ref={dialogRef}>
             {options.map((option, index) => (
-                <Link to={`/${option}`}>
-                    <MenuItem key={index}>{option}</MenuItem>
+                <Link to={option} key={index}>
+                    <MenuItem>{option}</MenuItem>
                 </Link>
             ))}
         </dialog>

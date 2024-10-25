@@ -1,14 +1,25 @@
 import { createFileRoute } from '@tanstack/react-router'
 import '../../styles/garage.css'
+import { Pages } from '../../types/pages';
 
-export const Route = createFileRoute('/(menus)/_menus/garage/$page')({
-    component: Pages
+type PageURLs = Record<Pages, string>
+
+export const Route = createFileRoute('/(menus)/_menus/garage')({
+    validateSearch: (search: Record<string, unknown>): Pages => {
+        try {
+            return search?.page as Pages ?? 'cafe'
+        }
+        catch {
+            return 'cafe'
+        }
+    },
+    component: Garage
 })
 
-function Pages() {
-    const { page }: { page: "cafe" | "cloth" | "game" | "mac" | "ow" | "pets" | "salon" } = Route.useParams();
+function Garage() {
+    const { page }: { page: Pages } = Route.useSearch();
 
-    const pages = {
+    const pages: PageURLs = {
         cafe: "https://kaleidoscopic-taffy-300230.netlify.app",
         cloth: "https://gregarious-semolina-4e434b.netlify.app",
         game: "https://whimsical-pika-d83faa.netlify.app",

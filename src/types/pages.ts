@@ -1,0 +1,1 @@
+export type Pages = "cafe" | "cloth" | "game" | "mac" | "ow" | "pets" | "salon"; 
