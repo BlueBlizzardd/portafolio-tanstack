@@ -17,6 +17,10 @@ body {
   padding: 0;
 }
 
+a {
+  text-decoration: none;
+}
+
 .primary-bg {
   background-color: var(--primary-bg);
   color: var(--primary-text);

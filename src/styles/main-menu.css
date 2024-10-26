@@ -19,10 +19,6 @@ dialog {
         transition: all var(--animation-speed) linear;
     }
 
-    a {
-        text-decoration: none;
-    }
-
     .menu-item {
         margin-block-end: 4px;
         grid-template-columns: 0fr 40px;

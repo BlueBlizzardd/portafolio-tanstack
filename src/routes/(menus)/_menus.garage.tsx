@@ -1,16 +1,21 @@
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute, Link } from '@tanstack/react-router'
 import '../../styles/garage.css'
 import { Pages } from '../../types/pages';
+import MenuItem from '../../components/menu-item';
 
 type PageURLs = Record<Pages, string>
 
 export const Route = createFileRoute('/(menus)/_menus/garage')({
-    validateSearch: (search: Record<string, unknown>): Pages => {
+    validateSearch: (search: Record<string, unknown>): { page: Pages } => {
         try {
-            return search?.page as Pages ?? 'cafe'
+            return {
+                page: search?.page as Pages ?? 'cafe'
+            }
         }
         catch {
-            return 'cafe'
+            return {
+                page: 'cafe'
+            }
         }
     },
     component: Garage
@@ -33,9 +38,17 @@ function Garage() {
 
     return (
         <div className='garage'>
-            <a href={`${pages[page]}`}>
-                <img src={img} />
-            </a>
+            <div className="d-flex garage-options">
+                <div>
+                    <a href={`${pages[page]}`}>
+                        <MenuItem>O.K</MenuItem>
+                    </a>
+                    <Link to='/'>
+                        <MenuItem>Exit</MenuItem>
+                    </Link>
+                </div>
+            </div>
+            <img src={img} />
         </div>
     )
 }
