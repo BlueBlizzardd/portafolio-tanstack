@@ -59,7 +59,7 @@ function Garage() {
             <table className="title img-info">
                 <thead>
                     <tr>
-                        <th className='mode'>Car data</th>
+                        <th>Car data</th>
                     </tr>
                 </thead>
                 <tbody>

@@ -18,7 +18,7 @@ function Menu() {
       <footer className="footer">
         <div className="separator"></div>
         <div className="d-flex controls">
-          <div className="control title">Directional Buttons: </div>
+          <div className="control title">Directional Buttons: Arrows</div>
           <div className="control title">Enter Button: O.K.</div>
           <div className="control title">Esc Button: Cancel</div>
           <div className="control title">Please</div>

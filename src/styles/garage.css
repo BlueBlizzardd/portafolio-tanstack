@@ -6,6 +6,7 @@
         padding-top: 2rem;
         border: 2px solid white;
         background-color: darkslategrey;
+        overflow: hidden;
     }
 
     img {
@@ -70,6 +71,8 @@
         table-layout: fixed;
         border-collapse: collapse;
         font-size: clamp(1.25rem, 1.2248rem + 0.8389vw, 1.875rem);
+        translate: 0 100%;
+        animation: slide-in var(--animation-speed) var(--animation-speed) linear forwards;
 
         th,
         td {
@@ -84,6 +87,11 @@
             border-color: white;
             border-radius: 5px 5px 5px 0;
             text-align: start;
+
+            &::before {
+                content: '*';
+                display: inline;
+            }
         }
 
         td {
