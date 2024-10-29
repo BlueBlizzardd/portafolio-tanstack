@@ -1,20 +1,114 @@
 @scope (.garage) {
     :scope {
+        position: relative;
         max-width: 90%;
         margin-inline: auto;
-        padding: 2rem;
-        border: 2px solid black;
+        padding-top: 2rem;
+        border: 2px solid white;
         background-color: darkslategrey;
     }
 
     img {
         display: block;
-        max-width: max(50%, 250px);
+        max-width: max(40%, 250px);
         margin-inline: auto;
         perspective: 500px;
         aspect-ratio: 2 / 1;
         transform: rotateY(45deg);
         animation: rotate calc(var(--animation-speed) * 6) linear infinite;
+    }
+
+    .garage-links {
+        position: absolute;
+        left: 2rem;
+        width: 25%;
+
+        li {
+            margin-bottom: 0.7rem;
+        }
+    }
+
+    .garage-options {
+        margin-inline: auto;
+        margin-block: 1.5rem;
+        width: 50%;
+        justify-content: space-evenly;
+    }
+
+    .garage-navigation {
+        margin-inline: auto;
+        margin-block: 1rem;
+        width: 5rem;
+        justify-content: space-between;
+        align-items: center;
+        color: white;
+
+        .arrow {
+            width: 0;
+            height: 0;
+            border-top: 12px solid transparent;
+            border-bottom: 12px solid transparent;
+
+            &:first-child {
+                border-right: 25px solid white;
+            }
+
+            &:last-child {
+                border-left: 25px solid white;
+            }
+        }
+    }
+
+    .divider {
+        width: 2px;
+        height: 50%;
+        background-color: white;
+    }
+
+    .img-info {
+        width: 100%;
+        table-layout: fixed;
+        border-collapse: collapse;
+        font-size: clamp(1.25rem, 1.2248rem + 0.8389vw, 1.875rem);
+
+        th,
+        td {
+            padding-inline: 1rem;
+            color: white;
+        }
+
+        th {
+            width: max-content;
+            border-width: 2px 2px 0 2px;
+            border-style: solid solid none solid;
+            border-color: white;
+            border-radius: 5px 5px 5px 0;
+            text-align: start;
+        }
+
+        td {
+            border-top: 2px solid white;
+            border-bottom: 2px solid white;
+
+            &::before {
+                content: attr(data-label) " : ";
+            }
+        }
+    }
+
+    @media (width < 640px) {
+        .garage-options {
+            width: 100%;
+        }
+
+        .garage-links {
+            position: static;
+            width: max-content;
+        }
+
+        .garage-navigation {
+            margin-inline: 0;
+        }
     }
 }
 

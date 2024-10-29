@@ -7,15 +7,8 @@ type PageURLs = Record<Pages, string>
 
 export const Route = createFileRoute('/(menus)/_menus/garage')({
     validateSearch: (search: Record<string, unknown>): { page: Pages } => {
-        try {
-            return {
-                page: search?.page as Pages ?? 'cafe'
-            }
-        }
-        catch {
-            return {
-                page: 'cafe'
-            }
+        return {
+            page: search?.page as Pages ?? 'cafe'
         }
     },
     component: Garage
@@ -34,12 +27,15 @@ function Garage() {
         salon: "https://peaceful-chaja-823c96.netlify.app"
     }
 
+    const pageNames = Object.keys(pages) as Pages[];
+    const pageID = pageNames.indexOf(page);
+
     const img: string = `/${page}.png`;
 
     return (
         <div className='garage'>
             <div className="d-flex garage-options">
-                <div>
+                <div className='garage-links'>
                     <a href={`${pages[page]}`}>
                         <MenuItem>O.K</MenuItem>
                     </a>
@@ -47,8 +43,38 @@ function Garage() {
                         <MenuItem>Exit</MenuItem>
                     </Link>
                 </div>
+                <div className="d-flex garage-navigation">
+                    <Link to='.' search={{ page: pageNames.at(pageID - 1) }} onKeyUp={event => {
+                        if (event.key === 'ArrowLeft')
+                            event.currentTarget.click();
+                    }} className='arrow'></Link>
+                    <div className="divider"></div>
+                    <Link to='.' search={{ page: pageNames.at(pageID + 1) }} onKeyUp={(event) => {
+                        if (event.key === 'ArrowRight')
+                            event.currentTarget.click();
+                    }} className='arrow'></Link>
+                </div>
             </div>
             <img src={img} />
+            <table className="title img-info">
+                <thead>
+                    <tr>
+                        <th className='mode'>Car data</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Maker name">Eduardo [VE]</td>
+                        <td data-label="Car name">{page.toUpperCase()}</td>
+                        <td data-label="Stage">01</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Team name">None</td>
+                        <td data-label="Max speed">{`10${pageID}`} mPH</td>
+                        <td data-label="Type">Drift</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     )
 }
