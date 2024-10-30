@@ -2,6 +2,7 @@ import { createFileRoute, Link } from '@tanstack/react-router'
 import '../../styles/garage.css'
 import { Pages } from '../../types/pages';
 import MenuItem from '../../components/menu-item';
+import TextBox from '../../components/text-box';
 
 type PageURLs = Record<Pages, string>
 
@@ -56,25 +57,22 @@ function Garage() {
                 </div>
             </div>
             <img src={img} />
-            <table className="title img-info">
-                <thead>
-                    <tr>
-                        <th>Car data</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td data-label="Maker name">Eduardo [VE]</td>
-                        <td data-label="Car name">{page.toUpperCase()}</td>
-                        <td data-label="Stage">01</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Team name">None</td>
-                        <td data-label="Max speed">{`10${pageID}`} mPH</td>
-                        <td data-label="Type">Drift</td>
-                    </tr>
-                </tbody>
-            </table>
+            <TextBox title='Car data'>
+                <table className="title img-info">
+                    <tbody>
+                        <tr>
+                            <td data-label="Maker name">Eduardo [VE]</td>
+                            <td data-label="Car name">{page.toUpperCase()}</td>
+                            <td data-label="Stage">01</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Team name">None</td>
+                            <td data-label="Max speed">{`10${pageID}`} mPH</td>
+                            <td data-label="Type">Drift</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </TextBox>
         </div>
     )
 }
