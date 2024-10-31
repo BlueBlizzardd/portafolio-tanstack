@@ -1,9 +1,28 @@
 @scope (.about) {
     :scope {
         max-width: 90%;
+        margin-inline: auto;
         border: 2px solid white;
-        background:
+        background-color: black;
+        overflow: hidden;
     }
 
+    .about-image {
+        max-width: 50%;
+        margin-inline: auto;
+        aspect-ratio: 2 / 1;
+        background: url('/wine.png') no-repeat center padding-box;
+        background-size: contain;
+    }
 
+    .about-text {
+        position: relative;
+        margin: 0;
+        padding: 2rem;
+        border: 2px solid white;
+    }
+
+    .skip-button {
+        position: absolute;
+    }
 }

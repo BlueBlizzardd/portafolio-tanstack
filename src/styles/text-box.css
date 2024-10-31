@@ -4,6 +4,10 @@
         font-size: clamp(0.875rem, 0.6576rem + 1.087vw, 1.5rem);
         translate: 0 100%;
         animation: slide-in var(--animation-speed) var(--animation-speed) linear forwards;
+
+        * {
+            background-color: var(--menu-bg);
+        }
     }
 
     .text-box-title {

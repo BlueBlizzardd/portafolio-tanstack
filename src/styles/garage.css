@@ -3,7 +3,7 @@
         position: relative;
         max-width: 90%;
         margin-inline: auto;
-        padding-top: 2rem;
+        padding-top: 0rem;
         outline: 2px solid white;
         background-color: darkslategrey;
         overflow: hidden;
@@ -63,7 +63,7 @@
 
     .divider {
         width: 2px;
-        height: 50%;
+        height: 35px;
         background-color: white;
     }
 
@@ -77,6 +77,10 @@
             color: white;
             border-top: 2px solid white;
             border-bottom: 2px solid white;
+
+            &:not(:last-child) {
+                border-right: 2px solid white;
+            }
 
             &::before {
                 content: attr(data-label) " : ";

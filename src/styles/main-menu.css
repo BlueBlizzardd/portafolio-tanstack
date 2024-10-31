@@ -2,7 +2,7 @@ dialog {
     width: 500px;
     border: none;
     background-color: transparent;
-    transition: all var(--animation-speed) linear allow-discrete;
+    transition: all var(--animation-speed) ease-in allow-discrete;
 
     &[open] {
         &::backdrop {
@@ -16,13 +16,13 @@ dialog {
 
     &::backdrop {
         background-color: hsla(0, 0%, 0%, 0%);
-        transition: all var(--animation-speed) linear;
+        transition: all var(--animation-speed) ease-in;
     }
 
     .menu-item {
         margin-block-end: 4px;
         grid-template-columns: 0fr 40px;
-        transition: all var(--animation-speed) linear;
+        transition: all var(--animation-speed) ease-in;
     }
 }
 

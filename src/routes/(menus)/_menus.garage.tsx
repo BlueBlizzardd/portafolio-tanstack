@@ -46,11 +46,13 @@ function Garage() {
                 </div>
                 <div className="d-flex garage-navigation">
                     <Link to='.' search={{ page: pageNames.at(pageID - 1) }} onKeyUp={event => {
+                        event.preventDefault();
                         if (event.key === 'ArrowLeft')
                             event.currentTarget.click();
                     }} className='arrow'></Link>
                     <div className="divider"></div>
                     <Link to='.' search={{ page: pageNames.at(pageID + 1) }} onKeyUp={(event) => {
+                        event.preventDefault();
                         if (event.key === 'ArrowRight')
                             event.currentTarget.click();
                     }} className='arrow'></Link>
