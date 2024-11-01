@@ -7,6 +7,8 @@
     }
 
     span {
+        height: 100%;
+        align-content: center;
         margin-block: auto;
         padding-inline: 1rem;
         padding-block: 0.2rem;

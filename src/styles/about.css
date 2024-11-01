@@ -1,14 +1,7 @@
 @scope (.about) {
-    :scope {
-        max-width: 90%;
-        margin-inline: auto;
-        border: 2px solid white;
-        background-color: black;
-        overflow: hidden;
-    }
-
     .about-image {
         max-width: 50%;
+        min-height: 315px;
         margin-inline: auto;
         aspect-ratio: 2 / 1;
         background: url('/wine.png') no-repeat center padding-box;
@@ -24,5 +17,11 @@
 
     .skip-button {
         position: absolute;
+    }
+
+    @media (width < 640px) {
+        .about-text {
+            padding: 0.5rem;
+        }
     }
 }

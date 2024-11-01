@@ -1,14 +1,4 @@
 @scope (.garage) {
-    :scope {
-        position: relative;
-        max-width: 90%;
-        margin-inline: auto;
-        padding-top: 0rem;
-        outline: 2px solid white;
-        background-color: darkslategrey;
-        overflow: hidden;
-    }
-
     img {
         display: block;
         max-width: max(40%, 250px);

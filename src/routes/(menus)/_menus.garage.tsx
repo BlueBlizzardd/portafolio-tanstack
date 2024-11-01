@@ -3,6 +3,8 @@ import '../../styles/garage.css'
 import { Pages } from '../../types/pages';
 import MenuItem from '../../components/menu-item';
 import TextBox from '../../components/text-box';
+import DialogBox from '../../components/dialog-box';
+import React from 'react';
 
 type PageURLs = Record<Pages, string>
 
@@ -34,7 +36,7 @@ function Garage() {
     const img: string = `/${page}.png`;
 
     return (
-        <div className='garage'>
+        <DialogBox scope='garage' backgroundColor={{ '--dialog-bg': 'darkslategrey' }}>
             <div className="d-flex garage-options">
                 <div className='garage-links'>
                     <a href={`${pages[page]}`}>
@@ -75,6 +77,6 @@ function Garage() {
                     </tbody>
                 </table>
             </TextBox>
-        </div>
+        </DialogBox>
     )
 }

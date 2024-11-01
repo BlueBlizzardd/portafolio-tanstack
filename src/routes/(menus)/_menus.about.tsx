@@ -2,6 +2,7 @@ import { createFileRoute } from '@tanstack/react-router'
 import TextBox from '../../components/text-box'
 import '../../styles/about.css'
 import { useState } from 'react';
+import DialogBox from '../../components/dialog-box';
 
 export const Route = createFileRoute('/(menus)/_menus/about')({
   component: About
@@ -11,7 +12,7 @@ function About() {
   const [done, setDone] = useState<boolean>(false);
 
   return (
-    <div className="about">
+    <DialogBox scope='about'>
       <div className="about-image"></div>
       <TextBox title='Message'>
         <p className='about-text' onAnimationEnd={() => setDone(done => !done)}>
@@ -20,6 +21,6 @@ function About() {
         </p>
         <button disabled={!done} aria-disabled={!done} style={{ display: done ? 'block' : 'none' }} className='skip-button'></button>
       </TextBox>
-    </div>
+    </DialogBox>
   )
 }

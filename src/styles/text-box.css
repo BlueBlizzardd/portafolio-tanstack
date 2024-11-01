@@ -3,7 +3,8 @@
         color: white;
         font-size: clamp(0.875rem, 0.6576rem + 1.087vw, 1.5rem);
         translate: 0 100%;
-        animation: slide-in var(--animation-speed) var(--animation-speed) linear forwards;
+        animation: slide-in var(--animation-speed) linear forwards;
+        animation-delay: calc(var(--animation-speed) * 2);
 
         * {
             background-color: var(--menu-bg);
