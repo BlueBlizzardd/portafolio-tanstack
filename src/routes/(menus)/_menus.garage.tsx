@@ -4,7 +4,6 @@ import { Pages } from '../../types/pages';
 import MenuItem from '../../components/menu-item';
 import TextBox from '../../components/text-box';
 import DialogBox from '../../components/dialog-box';
-import React from 'react';
 
 type PageURLs = Record<Pages, string>
 
