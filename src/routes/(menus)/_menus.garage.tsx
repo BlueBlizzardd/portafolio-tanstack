@@ -1,11 +1,9 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
 import '../../styles/garage.css'
-import { Pages } from '../../types/pages';
+import { pageNames, Pages, PageURLs } from '../../types/pages';
 import MenuItem from '../../components/menu-item';
 import TextBox from '../../components/text-box';
 import DialogBox from '../../components/dialog-box';
-
-type PageURLs = Record<Pages, string>
 
 export const Route = createFileRoute('/(menus)/_menus/garage')({
     validateSearch: (search: Record<string, unknown>): { page: Pages } => {
@@ -26,10 +24,10 @@ function Garage() {
         mac: "https://github.com/BlueBlizzardd/Landing-Page-1-Multimedia",
         ow: "https://github.com/BlueBlizzardd/Website--1-Multimedia",
         pets: "https://curious-concha-d8e4c1.netlify.app",
-        salon: "https://peaceful-chaja-823c96.netlify.app"
+        salon: "https://peaceful-chaja-823c96.netlify.app",
+        pronto: "https://prontopizzacantaclaro.netlify.app/home"
     }
 
-    const pageNames = Object.keys(pages) as Pages[];
     const pageID = pageNames.indexOf(page);
 
     const img: string = `/${page}.png`;
