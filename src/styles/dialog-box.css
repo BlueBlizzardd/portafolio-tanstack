@@ -1,6 +1,6 @@
 @scope (.container) {
     :scope {
-        max-width: 90%;
+        width: 90%;
         margin-inline: auto;
         overflow: hidden;
     }

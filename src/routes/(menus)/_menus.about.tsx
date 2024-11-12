@@ -1,25 +1,23 @@
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute, useNavigate } from '@tanstack/react-router'
 import TextBox from '../../components/text-box'
 import '../../styles/about.css'
-import { useState } from 'react';
 import DialogBox from '../../components/dialog-box';
+import Typewriter from '../../components/typewriter';
 
 export const Route = createFileRoute('/(menus)/_menus/about')({
   component: About
 })
 
 function About() {
-  const [done, setDone] = useState<boolean>(false);
+  const navigate = useNavigate();
+  const sentences = ["Hello, I'm Eduardo.", "This is a website made to explore all of my capabilities in web design and development",
+    "something I've been doing for about a year and a half at this point."];
 
   return (
     <DialogBox scope='about'>
       <div className="about-image"></div>
       <TextBox title='Message'>
-        <p className='about-text' onAnimationEnd={() => setDone(done => !done)}>
-          Hello, I'm Eduardo. This is a website made to explore all of my capabilities in web design and development, something I've
-          been doing for about a year and a half at this point.
-        </p>
-        <button disabled={!done} aria-disabled={!done} style={{ display: done ? 'block' : 'none' }} className='skip-button'></button>
+        <Typewriter sentences={sentences} onComplete={() => navigate({ to: '/' })}></Typewriter>
       </TextBox>
     </DialogBox>
   )
