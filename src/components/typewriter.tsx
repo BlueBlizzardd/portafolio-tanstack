@@ -1,6 +1,5 @@
 import { useRef, useState } from 'react'
 import '../styles/typewriter.css'
-import { useNavigate } from '@tanstack/react-router';
 
 type TypewriterProps = {
     sentences: Array<string>,
